@@ -1,0 +1,110 @@
+﻿@model CRUD_MVC_PARCIAL2.Models.Usuarios
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Usuarios</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NOMBRE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NOMBRE, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NOMBRE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EMAIL, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TELEFONO, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TELEFONO, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TELEFONO, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.ESTADO_CIVIL, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ESTADO_CIVIL, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ESTADO_CIVIL, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+        <div class="form-group">
+            @Html.Label("Estado Civil:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="form-control" name="ESTADO_CIVIL">
+                    @Html.Raw(ViewBag.usuario)
+                </select>
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.HIJOS, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HIJOS, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HIJOS, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.Label("¿Tiene Hijos?:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                Si:   @Html.RadioButtonFor(model => model.HIJOS, "SI")
+                No:   @Html.RadioButtonFor(model => model.HIJOS, "NO")
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("INTERESES:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.LIBROS) Libros
+                @Html.ValidationMessageFor(model => model.LIBROS, "", new { @class = "text-danger" })
+                @Html.CheckBoxFor(model => model.MUSICA) Musica
+                @Html.ValidationMessageFor(model => model.MUSICA, "", new { @class = "text-danger" })
+                @Html.CheckBoxFor(model => model.DEPORTES) Deportes
+                @Html.ValidationMessageFor(model => model.DEPORTES, "", new { @class = "text-danger" })
+                @Html.CheckBoxFor(model => model.OTROS) Otros
+                @Html.ValidationMessageFor(model => model.OTROS, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.LIBROS, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.LIBROS)
+                    @Html.ValidationMessageFor(model => model.LIBROS, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>*@
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar" class="btn btn-warning" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,79 @@
+﻿@model IEnumerable<CRUD_MVC_PARCIAL2.Models.Usuarios>
+
+@{
+    ViewBag.Title = "Registros realizados";
+}
+
+<h2>Registros realizados</h2>
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TELEFONO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ESTADO_CIVIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HIJOS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LIBROS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MUSICA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DEPORTES)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OTROS)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOMBRE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMAIL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TELEFONO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ESTADO_CIVIL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HIJOS )
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LIBROS_VALUE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MUSICA_VALUE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DEPORTES_VALUE )
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OTROS_VALUE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }, new { @class = "btn btn-info" }) |
+            @*@Html.ActionLink("Details", "Details", new { id=item.ID }) |*@
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

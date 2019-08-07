@@ -1,0 +1,94 @@
+﻿@model CRUD_MVC_PARCIAL2.Models.Usuarios
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Usuarios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <b>Nombre:</b>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRE)
+        </dd>
+
+        <dt>
+            <b>Email:</b>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+
+        <dt>
+           <b>Teléfono:</b>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TELEFONO)
+        </dd>
+
+        <dt>
+            <b>Estado civil:</b>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ESTADO_CIVIL)
+        </dd>
+
+        <dt>
+           <b>Hijos:</b>
+
+        <dd>
+            @Html.DisplayFor(model => model.HIJOS)
+        </dd>
+       <dt><b>INTERESES</b></dt>
+        <dd></dd>
+        <dt>
+            <b>Libros:</b>
+        </dt>
+        
+        <dd>
+            @Html.DisplayFor(model => model.LIBROS_VALUE)
+        </dd>
+
+        <dt>
+           <b>Musica:</b>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MUSICA_VALUE)
+        </dd>
+
+        <dt>
+            <b>Deportes:</b>
+        </dt>
+
+      
+        <dd>
+            @Html.DisplayFor(model => model.DEPORTES_VALUE)
+        </dd>
+
+        <dt>
+            <b>Otros</b>
+        </dt>
+
+      
+        <dd>
+            @Html.DisplayFor(model => model.OTROS_VALUE)
+        </dd>
+
+       
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Registros")
+        </div>
+    }
+</div>
